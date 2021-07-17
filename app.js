@@ -25,6 +25,7 @@ app.get( "/", ( req, res ) => {
 app.post( "/", (req, res) => {
     const queryCity = req.body.cityName;    //parsing the cityName that the user types
     const testURL = `https://api.openweathermap.org/data/2.5/weather?q=${queryCity}&appid=${apiKey}&lang=en&units=${units}`;
+    
     //Making GET request to an external server natively using HTTPS module
     https.get( testURL, ( response ) => {
         response.on( "data", ( data ) => {  //GET the response on "data" event and log the data
